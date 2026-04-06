@@ -1,11 +1,18 @@
 import { test } from '@playwright/test';
 import { faker } from '@faker-js/faker';
+import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
+import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
+
+let customerPage;
+let customersListPage;
 
 let firstName;
 let lastName;
-let postalCode;
+let postCode;
 
 test.beforeEach(async ({ page }) => {
+  customerPage = new AddCustomerPage(page);
+  customersListPage = new CustomersListPage(page);
   /* 
   Pre-conditons:
   1. Open Add Customer page
@@ -16,10 +23,20 @@ test.beforeEach(async ({ page }) => {
   */
   firstName = faker.person.firstName();
   lastName = faker.person.lastName();
-  postalCode = faker.location.zipCode();
+  postCode = faker.location.zipCode();
+
+  await customerPage.open();
+  await customerPage.fillFirstNameField(firstName);
+  await customerPage.fillLastNameField(lastName);
+  await customerPage.fillPostCodeField(postCode);
+  await customerPage.clickAddCustomerButton();
 });
 
 test('Assert manager can search customer by Last Name', async ({ page }) => {
+  await customersListPage.open();
+  await customersListPage.fillSearchCustomerField(lastName);
+  await customersListPage.assertCustomerExists(lastName);
+  await customersListPage.assertOnlyOneRowVisible();
   /* 
   Test:
   1. Open Customers page
