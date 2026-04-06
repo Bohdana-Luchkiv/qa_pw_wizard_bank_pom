@@ -33,3 +33,4 @@ test('Assert the customer cannot withdraw money with empty balance', async ({
   await accountPage.clickWithdrawlFormButton();
   await accountPage.assertWithdrawNoBalanceErrorMessageIsVisible();
 });
+

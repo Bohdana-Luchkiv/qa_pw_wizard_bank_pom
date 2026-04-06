@@ -39,3 +39,4 @@ test('Assert the deposit can be opened', async ({ page }) => {
   await transactionsPage.assertFirstRowAmountContainsText(amount);
   await transactionsPage.assertFirstRowTypeContainsText('Credit');
 });
+

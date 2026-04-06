@@ -25,3 +25,4 @@ test('Assert customer has correct bank data', async ({ page }) => {
   await accountPage.assertAccountLineContainsText('Balance : 5096');
   await accountPage.assertAccountLineContainsText('Currency : Dollar');
 });
+
