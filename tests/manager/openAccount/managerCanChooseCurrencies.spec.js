@@ -1,5 +1,4 @@
 import { test } from '@playwright/test';
-import { faker } from '@faker-js/faker';
 import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 
 

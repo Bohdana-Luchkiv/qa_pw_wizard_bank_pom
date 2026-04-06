@@ -39,7 +39,6 @@ test.beforeEach(async ({ page }) => {
 
 test('Assert manager can open account', async ({ page }) => {
   await openAccountPage.open();
-  await page.waitForTimeout(1000);
   await openAccountPage.selectCustomer(`${customerName} ${customerLastName}`);
   await openAccountPage.selectCurrency('Dollar');
   await openAccountPage.clickProcessButton();

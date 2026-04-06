@@ -30,6 +30,7 @@ test.beforeEach(async ({ page }) => {
   await customerPage.fillLastNameField(lastName);
   await customerPage.fillPostCodeField(postCode);
   await customerPage.clickAddCustomerButton();
+  await page.reload();
 });
 
 test('Assert manager can search customer by Postal Code', async ({ page }) => {

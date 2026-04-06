@@ -54,18 +54,8 @@ export class CustomersListPage {
     await this.searchCustomerField.fill(Name);
   }
 
-  async assertCustomerExists(name) {
-    const row = this.tableRows.filter({ hasText: name });
-    await expect(row).toBeVisible();
-  }
-
-  async assertCustomerExists(surname) {
-    const row = this.tableRows.filter({ hasText: surname });
-    await expect(row).toBeVisible();
-  }
-
-  async assertCustomerExists(number) {
-    const row = this.tableRows.filter({ hasText: number });
+  async assertCustomerExists(value) {
+    const row = this.tableRows.filter({ hasText: value });
     await expect(row).toBeVisible();
   }
 
