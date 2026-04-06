@@ -34,3 +34,4 @@ export class CustomerLoginPage {
     await expect(currentOptionText).toHaveValue(value);
   }
 }
+

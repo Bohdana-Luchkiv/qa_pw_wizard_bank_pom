@@ -47,3 +47,4 @@ export class TransactionsPage {
     await expect(this.headerThirdCell).toContainText(text);
   }
 }
+

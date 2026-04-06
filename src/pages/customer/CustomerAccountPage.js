@@ -78,3 +78,4 @@ export class CustomerAccountPage {
     await expect(this.withdrawNoBalanceErrorMessage).toBeVisible();
   }
 }
+
